@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
+ 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("obs"))
@@ -11,4 +13,6 @@ public class PlayerBehavior : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+   
 }

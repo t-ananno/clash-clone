@@ -19,6 +19,7 @@ public class EventManager : MonoBehaviour
         {
             ForwardMovement();
         }
+      
     }
 
     void Update()
@@ -35,7 +36,7 @@ public class EventManager : MonoBehaviour
         }
 
         ForwardMovement();
-
+       
 
     }
 }

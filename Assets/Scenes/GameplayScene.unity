@@ -247,7 +247,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: leftMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
       propertyPath: movementSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: rightMoveSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475596, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
@@ -331,6 +339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
+  leftMoveSpeed: 1
+  rightMoveSpeed: 1
 --- !u!65 &598709853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -610,7 +620,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: leftMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
       propertyPath: movementSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: rightMoveSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475596, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
@@ -822,7 +840,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: leftMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
       propertyPath: movementSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: rightMoveSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475596, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
@@ -1082,7 +1108,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: leftMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
       propertyPath: movementSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614708914052475585, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}
+      propertyPath: rightMoveSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614708914052475596, guid: be0ff1a7fc3fb40ccab7493b2f8db986, type: 3}

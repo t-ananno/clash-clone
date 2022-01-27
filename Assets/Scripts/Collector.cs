@@ -16,7 +16,9 @@ public class Collector : MonoBehaviour
     [SerializeField]
     private bool isPlayer=false;
     [SerializeField]
-    int movementSpeed=0;
+    int movementSpeed,leftMoveSpeed,rightMoveSpeed;
+    [SerializeField]
+    float zAxisValue;
 
     private void Start()
     {
@@ -43,6 +45,9 @@ public class Collector : MonoBehaviour
                 {
                     _go.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);           
                     _go.GetComponent<Collector>().movementSpeed = 1;
+                    _go.GetComponent<Collector>().leftMoveSpeed = 1;
+                    _go.GetComponent<Collector>().rightMoveSpeed = 1;
+                    _go.GetComponent<Collector>().isPlayer = true;
                     _go.tag = "Player";
 
                 }
@@ -58,16 +63,54 @@ public class Collector : MonoBehaviour
 
     void MoveLeft()
     {
-        transform.position += new Vector3(0, 0, movementSpeed * Time.deltaTime);
+        if (zAxisValue<4f)
+        {
+            
+            transform.position += new Vector3(0, 0, leftMoveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+            {
+                GameObject _go = Manager.instance.NPCList[i];
+                if (_go.GetComponent<Collector>().isPlayer==true)
+                {
+                    _go.GetComponent<Collector>().leftMoveSpeed = 0;
+                    _go.GetComponent<Collector>().rightMoveSpeed = 1;
+                }
+            }
+
+      
+        }
+       
     }
 
     void MoveRight()
     {
-        transform.position += new Vector3(0, 0, -movementSpeed * Time.deltaTime);
+        if (zAxisValue>-4f)
+        {
+            transform.position += new Vector3(0, 0, -rightMoveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+            {
+                GameObject _go = Manager.instance.NPCList[i];
+                if (_go.GetComponent<Collector>().isPlayer == true)
+                {
+                    _go.GetComponent<Collector>().leftMoveSpeed =  1;
+                    _go.GetComponent<Collector>().rightMoveSpeed = 0;
+                }
+            }
+
+
+        }
+
     }
 
     void MoveForward()
     {
+        zAxisValue = gameObject.transform.position.z;
         transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);
     }
 

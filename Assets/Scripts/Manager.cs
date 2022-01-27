@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour
 
     public List<GameObject> NPCList;
     public GameObject NPCHolder;
+    
 
     private void Awake()
     {
