@@ -59,6 +59,14 @@ public class Collector : MonoBehaviour
         {
             gameObject.SetActive(false);           
         }
+
+        else if(other.transform.CompareTag("enemy"))
+        {
+            EventManager.LeftMovementEvent -= MoveLeft;
+            EventManager.RightMovementEvent -= MoveRight;
+            EventManager.ForwardMovement -= MoveForward;       
+           
+        }
     }
 
     void MoveLeft()
