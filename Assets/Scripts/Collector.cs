@@ -47,7 +47,12 @@ public class Collector : MonoBehaviour
 
                 }
             }
-            
+           
+        }
+
+        else if (other.transform.CompareTag("obs"))
+        {
+            gameObject.SetActive(false);           
         }
     }
 
