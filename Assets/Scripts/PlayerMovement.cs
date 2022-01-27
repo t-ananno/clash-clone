@@ -5,20 +5,36 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    float movementSpeed = 5;
+    float movementSpeed = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        //get the Input from Horizontal axis
-        float xAxisInput = Input.GetAxis("Vertical");
-        float zAxisInput = Input.GetAxis("Horizontal");
-       
+        EventManager.LeftMovementEvent += MoveLeft;
+        EventManager.RightMovementEvent += MoveRight;
+        EventManager.ForwardMovement += MoveForward;
+    }
 
-        //update the position
-        transform.position = transform.position + new Vector3(xAxisInput * movementSpeed * Time.deltaTime, 0,
-                             zAxisInput * movementSpeed * Time.deltaTime);
+ 
 
-        
+    void MoveLeft()
+    {
+        transform.position += new Vector3(0, 0, movementSpeed * Time.deltaTime);
+    }
+
+    void MoveRight()
+    {
+        transform.position += new Vector3(0, 0, -movementSpeed * Time.deltaTime);
+    }
+
+    void MoveForward()
+    {
+        transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.LeftMovementEvent -= MoveLeft;
+        EventManager.RightMovementEvent -= MoveRight;
+        EventManager.ForwardMovement -= MoveForward;
     }
 }
