@@ -19,7 +19,7 @@ public class Collector : MonoBehaviour
     int movementSpeed,leftMoveSpeed,rightMoveSpeed;
     [SerializeField]
     float zAxisValue;
-
+    bool _isLeftChanged = false, _isRightChaged=false;
     private void Start()
     {
 
@@ -71,13 +71,31 @@ public class Collector : MonoBehaviour
 
     void MoveLeft()
     {
+       
         if (zAxisValue<4f)
         {
             
             transform.position += new Vector3(0, 0, leftMoveSpeed * Time.deltaTime);
+
+            if (_isLeftChanged==true)
+            {
+                _isLeftChanged = false;
+                for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+                {
+                    GameObject _go = Manager.instance.NPCList[i];
+                    if (_go.GetComponent<Collector>().isPlayer == true)
+                    {
+                        _go.GetComponent<Collector>().leftMoveSpeed = 1;
+                       
+                    }
+
+                }
+            }
+
         }
         else
         {
+            _isLeftChanged = true;
             for (int i = 0; i < Manager.instance.NPCList.Count; i++)
             {
                 GameObject _go = Manager.instance.NPCList[i];
@@ -86,6 +104,7 @@ public class Collector : MonoBehaviour
                     _go.GetComponent<Collector>().leftMoveSpeed = 0;
                     _go.GetComponent<Collector>().rightMoveSpeed = 1;
                 }
+               
             }
 
       
@@ -95,12 +114,29 @@ public class Collector : MonoBehaviour
 
     void MoveRight()
     {
+
         if (zAxisValue>-4f)
         {
+
             transform.position += new Vector3(0, 0, -rightMoveSpeed * Time.deltaTime);
+            if (_isRightChaged==true)
+            {
+                _isRightChaged = false;
+                for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+                {
+                    GameObject _go = Manager.instance.NPCList[i];
+                    if (_go.GetComponent<Collector>().isPlayer == true)
+                    {                        
+                        _go.GetComponent<Collector>().rightMoveSpeed = 1;
+                    }
+                }
+
+
+            }
         }
         else
         {
+            _isRightChaged = true;
             for (int i = 0; i < Manager.instance.NPCList.Count; i++)
             {
                 GameObject _go = Manager.instance.NPCList[i];
