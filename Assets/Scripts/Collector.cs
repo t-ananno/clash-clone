@@ -19,6 +19,11 @@ public class Collector : MonoBehaviour
     int movementSpeed,leftMoveSpeed,rightMoveSpeed;
     [SerializeField]
     float zAxisValue;
+    [SerializeField]
+    Animator npcWalkAnimator;
+
+    private int walkAnimatorHash;
+
     bool _isLeftChanged = false, _isRightChaged=false;
     private void Start()
     {
@@ -26,6 +31,7 @@ public class Collector : MonoBehaviour
         EventManager.LeftMovementEvent += MoveLeft;
         EventManager.RightMovementEvent += MoveRight;
         EventManager.ForwardMovement += MoveForward;
+        walkAnimatorHash = Animator.StringToHash("isWalking");
     }
 
 
@@ -43,12 +49,15 @@ public class Collector : MonoBehaviour
 
                 if (_go.GetComponent<Collector>().groupID==this.groupID)
                 {
-                    _go.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);           
+                    _go.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
+                    _go.GetComponent<Collector>().npcWalkAnimator.SetBool(walkAnimatorHash,true);
                     _go.GetComponent<Collector>().movementSpeed = 1;
                     _go.GetComponent<Collector>().leftMoveSpeed = 1;
                     _go.GetComponent<Collector>().rightMoveSpeed = 1;
                     _go.GetComponent<Collector>().isPlayer = true;
                     _go.tag = "Player";
+
+                    
 
                 }
             }
