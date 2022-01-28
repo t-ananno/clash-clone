@@ -43,7 +43,7 @@ public class Collector : MonoBehaviour
 
                 if (_go.GetComponent<Collector>().groupID==this.groupID)
                 {
-                    _go.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);           
+                   // _go.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);           
                     _go.GetComponent<Collector>().movementSpeed = 1;
                     _go.GetComponent<Collector>().leftMoveSpeed = 1;
                     _go.GetComponent<Collector>().rightMoveSpeed = 1;
