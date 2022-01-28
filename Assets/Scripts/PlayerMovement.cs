@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (zAxis<4)
         {
+            leftMoveSpeed = 1;
             transform.position += new Vector3(0, 0, leftMoveSpeed * Time.deltaTime);
         }
         else
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (zAxis > -4)
         {
+            rightMoveSpeed = 1;
             transform.position += new Vector3(0, 0, -rightMoveSpeed * Time.deltaTime);
         }
         else
