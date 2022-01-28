@@ -20,7 +20,9 @@ public class Collector : MonoBehaviour
     [SerializeField]
     float zAxisValue;
     [SerializeField]
-    Animator npcWalkAnimator;
+    private Animator npcWalkAnimator;
+    [SerializeField]
+    private ParticleSystem destroyEffect;
 
     private int walkAnimatorHash;
 
@@ -66,7 +68,10 @@ public class Collector : MonoBehaviour
 
         else if (other.transform.CompareTag("obs"))
         {
-            gameObject.SetActive(false);           
+
+            gameObject.SetActive(false);
+                   
+            
         }
 
         else if(other.transform.CompareTag("enemy"))
