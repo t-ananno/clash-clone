@@ -7,7 +7,8 @@ public class Manager : MonoBehaviour
     public static Manager instance;
 
     public List<GameObject> NPCList;
-    public GameObject NPCHolder;
+    public GameObject NPCHolder, menuUI;
+    public int playerCount;
     
 
     private void Awake()
@@ -23,8 +24,10 @@ public class Manager : MonoBehaviour
         }
     }
 
+
     private void Start()
     {
+        playerCount = 1;
         AssignNPCList();
     }
 
@@ -43,5 +46,17 @@ public class Manager : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (playerCount==0)
+        {
+            playerCount = -1;
+            OpenMenuUI();
+        }
+    }
 
+    void OpenMenuUI()
+    {
+        menuUI.SetActive(true);
+    }
 }

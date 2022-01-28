@@ -11,6 +11,7 @@ public class PlayerBehavior : MonoBehaviour
         if (other.transform.CompareTag("obs"))
         {
             gameObject.SetActive(false);
+            Manager.instance.playerCount--;
         }
     }
 
