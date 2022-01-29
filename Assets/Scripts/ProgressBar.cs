@@ -31,10 +31,14 @@ public class ProgressBar : MonoBehaviour
             }
             else if (progress > 1)
             {
+                Manager.instance.isDestination = true;
                 progress = 1;
             }
 
             barImage.fillAmount = progress;
+          
         }
 
+
+    
     }

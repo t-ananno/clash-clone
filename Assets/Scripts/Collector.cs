@@ -23,6 +23,9 @@ public class Collector : MonoBehaviour
     private Animator npcWalkAnimator;
     [SerializeField]
     private ParticleSystem destroyEffect;
+    [SerializeField]
+    private GameObject NPCHolder;
+    
 
     private int walkAnimHash;
 
@@ -34,6 +37,7 @@ public class Collector : MonoBehaviour
         EventManager.RightMovementEvent += MoveRight;
         EventManager.ForwardMovement += MoveForward;
         walkAnimHash = Animator.StringToHash("isWalking");
+       
     }
 
 
@@ -45,11 +49,13 @@ public class Collector : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             //gameObject.GetComponent<Renderer>().material.SetColor("_Color",Color.yellow);
-            int _count = Manager.instance.NPCList.Count;
+           // int _count = Manager.instance.NPCList.Count;
+            int _count = NPCHolder.transform.childCount;
 
             for (int i = 0; i < _count; i++)
             {
-                GameObject _go = Manager.instance.NPCList[i];
+               // GameObject _go = Manager.instance.NPCList[i];
+                GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
 
                 if (_go.GetComponent<Collector>().groupID == this.groupID)
                 {
@@ -85,6 +91,10 @@ public class Collector : MonoBehaviour
         }
 
         Manager.instance.playerCount += _playerCount;
+
+       
+
+        
     }
 
     void MoveLeft()
@@ -98,9 +108,10 @@ public class Collector : MonoBehaviour
             if (_isLeftChanged==true)
             {
                 _isLeftChanged = false;
-                for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+                for (int i = 0; i < NPCHolder.transform.childCount; i++)
                 {
-                    GameObject _go = Manager.instance.NPCList[i];
+                   // GameObject _go = Manager.instance.NPCList[i];
+                    GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                     if (_go.GetComponent<Collector>().isPlayer == true)
                     {
                         _go.GetComponent<Collector>().leftMoveSpeed = 1;
@@ -114,9 +125,10 @@ public class Collector : MonoBehaviour
         else
         {
             _isLeftChanged = true;
-            for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+            for (int i = 0; i < NPCHolder.transform.childCount; i++)
             {
-                GameObject _go = Manager.instance.NPCList[i];
+                // GameObject _go = Manager.instance.NPCList[i];
+                GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                 if (_go.GetComponent<Collector>().isPlayer==true)
                 {
                     _go.GetComponent<Collector>().leftMoveSpeed = 0;
@@ -140,9 +152,10 @@ public class Collector : MonoBehaviour
             if (_isRightChaged==true)
             {
                 _isRightChaged = false;
-                for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+                for (int i = 0; i < NPCHolder.transform.childCount; i++)
                 {
-                    GameObject _go = Manager.instance.NPCList[i];
+                    // GameObject _go = Manager.instance.NPCList[i];
+                    GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                     if (_go.GetComponent<Collector>().isPlayer == true)
                     {                        
                         _go.GetComponent<Collector>().rightMoveSpeed = 1;
@@ -155,9 +168,10 @@ public class Collector : MonoBehaviour
         else
         {
             _isRightChaged = true;
-            for (int i = 0; i < Manager.instance.NPCList.Count; i++)
+            for (int i = 0; i < NPCHolder.transform.childCount; i++)
             {
-                GameObject _go = Manager.instance.NPCList[i];
+                // GameObject _go = Manager.instance.NPCList[i];
+                GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                 if (_go.GetComponent<Collector>().isPlayer == true)
                 {
                     _go.GetComponent<Collector>().leftMoveSpeed =  1;
