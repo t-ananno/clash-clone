@@ -20,7 +20,7 @@ public class UIController : MonoBehaviour
 
     void OnClickRestart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     void OnClickHome()

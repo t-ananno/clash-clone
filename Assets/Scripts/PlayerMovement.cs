@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    float movementSpeed = 1,leftMoveSpeed=1,rightMoveSpeed=1;
+    float movementSpeed = 1, leftMoveSpeed = 1, rightMoveSpeed = 1;
 
     private float zAxis;
 
@@ -16,11 +16,11 @@ public class PlayerMovement : MonoBehaviour
         EventManager.ForwardMovement += MoveForward;
     }
 
- 
+
 
     void MoveLeft()
     {
-        if (zAxis<4)
+        if (zAxis < 4)
         {
             leftMoveSpeed = 1;
             transform.position += new Vector3(0, 0, leftMoveSpeed * Time.deltaTime);
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
             leftMoveSpeed = 0;
             rightMoveSpeed = 1;
         }
-       
+
     }
 
     void MoveRight()
@@ -48,13 +48,14 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        
+
     }
 
     void MoveForward()
     {
         zAxis = gameObject.transform.position.z;
-        transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);        
+        
     }
 
   

@@ -50,13 +50,10 @@ public class Collector : MonoBehaviour
 
         if (other.transform.CompareTag("Player"))
         {
-            //gameObject.GetComponent<Renderer>().material.SetColor("_Color",Color.yellow);
-           // int _count = Manager.instance.NPCList.Count;
-          //  int _count = NPCHolder.transform.childCount;
+      
 
             for (int i = 0; i < NPCHolderCount; i++)
-            {
-               // GameObject _go = Manager.instance.NPCList[i];
+            {         
                 GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
 
                 if (_go.GetComponent<Collector>().groupID == this.groupID)
@@ -112,7 +109,6 @@ public class Collector : MonoBehaviour
                 _isLeftChanged = false;
                 for (int i = 0; i < NPCHolderCount; i++)
                 {
-                   // GameObject _go = Manager.instance.NPCList[i];
                     GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                     if (_go.GetComponent<Collector>().isPlayer == true)
                     {
@@ -128,8 +124,7 @@ public class Collector : MonoBehaviour
         {
             _isLeftChanged = true;
             for (int i = 0; i < NPCHolderCount; i++)
-            {
-                // GameObject _go = Manager.instance.NPCList[i];
+            {                
                 GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                 if (_go.GetComponent<Collector>().isPlayer==true)
                 {
@@ -156,7 +151,6 @@ public class Collector : MonoBehaviour
                 _isRightChaged = false;
                 for (int i = 0; i < NPCHolderCount; i++)
                 {
-                    // GameObject _go = Manager.instance.NPCList[i];
                     GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                     if (_go.GetComponent<Collector>().isPlayer == true)
                     {                        
@@ -172,7 +166,7 @@ public class Collector : MonoBehaviour
             _isRightChaged = true;
             for (int i = 0; i < NPCHolderCount; i++)
             {
-                // GameObject _go = Manager.instance.NPCList[i];
+                
                 GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
                 if (_go.GetComponent<Collector>().isPlayer == true)
                 {
@@ -188,8 +182,10 @@ public class Collector : MonoBehaviour
 
     void MoveForward()
     {
-        zAxisValue = gameObject.transform.position.z;
-        transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);
+        
+            zAxisValue = gameObject.transform.position.z;
+            transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);
+        
     }
 
 
