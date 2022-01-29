@@ -27,7 +27,7 @@ public class Collector : MonoBehaviour
     private GameObject NPCHolder;
     
 
-    private int walkAnimHash;
+    private int walkAnimHash,NPCHolderCount;
 
     bool _isLeftChanged = false, _isRightChaged=false;
     private void Start()
@@ -37,7 +37,9 @@ public class Collector : MonoBehaviour
         EventManager.RightMovementEvent += MoveRight;
         EventManager.ForwardMovement += MoveForward;
         walkAnimHash = Animator.StringToHash("isWalking");
-       
+        NPCHolderCount = NPCHolder.transform.childCount;
+
+
     }
 
 
@@ -50,9 +52,9 @@ public class Collector : MonoBehaviour
         {
             //gameObject.GetComponent<Renderer>().material.SetColor("_Color",Color.yellow);
            // int _count = Manager.instance.NPCList.Count;
-            int _count = NPCHolder.transform.childCount;
+          //  int _count = NPCHolder.transform.childCount;
 
-            for (int i = 0; i < _count; i++)
+            for (int i = 0; i < NPCHolderCount; i++)
             {
                // GameObject _go = Manager.instance.NPCList[i];
                 GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
@@ -108,7 +110,7 @@ public class Collector : MonoBehaviour
             if (_isLeftChanged==true)
             {
                 _isLeftChanged = false;
-                for (int i = 0; i < NPCHolder.transform.childCount; i++)
+                for (int i = 0; i < NPCHolderCount; i++)
                 {
                    // GameObject _go = Manager.instance.NPCList[i];
                     GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
@@ -125,7 +127,7 @@ public class Collector : MonoBehaviour
         else
         {
             _isLeftChanged = true;
-            for (int i = 0; i < NPCHolder.transform.childCount; i++)
+            for (int i = 0; i < NPCHolderCount; i++)
             {
                 // GameObject _go = Manager.instance.NPCList[i];
                 GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
@@ -152,7 +154,7 @@ public class Collector : MonoBehaviour
             if (_isRightChaged==true)
             {
                 _isRightChaged = false;
-                for (int i = 0; i < NPCHolder.transform.childCount; i++)
+                for (int i = 0; i < NPCHolderCount; i++)
                 {
                     // GameObject _go = Manager.instance.NPCList[i];
                     GameObject _go = NPCHolder.transform.GetChild(i).gameObject;
@@ -168,7 +170,7 @@ public class Collector : MonoBehaviour
         else
         {
             _isRightChaged = true;
-            for (int i = 0; i < NPCHolder.transform.childCount; i++)
+            for (int i = 0; i < NPCHolderCount; i++)
             {
                 // GameObject _go = Manager.instance.NPCList[i];
                 GameObject _go = NPCHolder.transform.GetChild(i).gameObject;

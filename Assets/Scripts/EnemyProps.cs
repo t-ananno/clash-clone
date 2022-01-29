@@ -16,7 +16,7 @@ public class EnemyProps : MonoBehaviour
             col = gameObject.GetComponent<Collider>();
             col.enabled = false;
             isPlayerFound = true;
-            print("player found");
+           
         }
     }
 }
