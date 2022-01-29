@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Manager : MonoBehaviour
     public GameObject NPCHolder, menuUI;
     public int playerCount;
     
+ 
+
 
     private void Awake()
     {
@@ -48,15 +51,20 @@ public class Manager : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (playerCount==0)
         {
             playerCount = -1;
             OpenMenuUI();
         }
+        
     }
 
     void OpenMenuUI()
     {
         menuUI.SetActive(true);
     }
+
+  
 }
