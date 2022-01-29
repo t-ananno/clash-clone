@@ -25,18 +25,19 @@ public class EventManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.A))
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             LeftMovementEvent();
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             RightMovementEvent();
         }
 
         ForwardMovement();
-       
+
 
     }
 }
